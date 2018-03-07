@@ -9,7 +9,7 @@ int main(int argc, const char * argv[]) {
     
     
     
-     
+  /*   
     Mat src1 = imread(argv[1], CV_LOAD_IMAGE_GRAYSCALE);
     HOGDescriptor *desc1=new HOGDescriptor();//cvSize(64,128),cvSize(16,16),cvSize(8,8),cvSize(8,8),9);
     vector<float> w1;
@@ -49,10 +49,10 @@ int main(int argc, const char * argv[]) {
     
     
     
+    */
     
     
-    
-   /* 
+   
     
     HOGDescriptor *desc=new HOGDescriptor();
     vector<float> w;
@@ -61,8 +61,8 @@ int main(int argc, const char * argv[]) {
             return -1;
         }
     
-        UMat videoFrame;
-        UMat grayImage;
+        Mat videoFrame;
+        Mat grayImage;
         UMat a;
         int i = 0;
         float start2 = getTickCount();
@@ -73,7 +73,7 @@ int main(int argc, const char * argv[]) {
             }
             
             cvtColor(videoFrame, grayImage, CV_RGB2GRAY);
-            desc->compute(grayImage,w,cvSize(2222,2222),cvSize(0,0));
+            desc->compute(grayImage,w,cvSize(64,128),cvSize(0,0));
             i++;
             
         }
@@ -81,11 +81,11 @@ int main(int argc, const char * argv[]) {
     float end2 = getTickCount();
     float t2= getTickFrequency();
     cout<< "cl"<<(end2 - start2)/t2<<endl;
-    
-    for (int i=0; i<10;i++)
+    cout<<w.size()<<endl;    
+    for (int i=10000; i<10010;i++)
       cout<< w[i]<<" ";
     
     
-    */
+    
     return 0;
 }
